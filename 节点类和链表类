@@ -1,0 +1,125 @@
+public class Link {
+	
+	public int data;
+	public Link next;
+	
+	public Link(int d) {
+		
+		data = d;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Link [data=" + data + "]";
+	}
+	
+	
+
+}
+
+
+
+
+
+package linkNode;
+
+public class LinkList {
+	
+	private Link first;
+	
+	//检查链表是否为空
+	public boolean isEmpty() {
+		
+		return (first == null);
+		
+	}
+	
+	
+	//从头部插入一个节点
+	public void insertFirst(int d) {
+		
+		Link newLink = new Link(d);
+		newLink.next = first;
+		first = newLink;
+		
+	}
+	
+	
+	//删除第一个节点
+	public Link deleteFirst() {
+		
+		Link temp=first;
+		first=first.next;
+	
+		
+		return temp;	
+	}
+	
+	
+	//展示整个链表
+	public void displayList() {
+		
+		System.out.print("List(first->last):");
+		
+		Link temp = first;
+		while(temp != null) {
+			
+			System.out.print(temp.data+"->");
+			temp=temp.next;
+			
+		}
+		
+		System.out.println("null");
+		
+	}
+	
+	
+	//查找特定节点
+	public Link searchLink(int d) {
+		
+		Link temp=first;
+		
+
+		while(temp != null) {
+			
+			if(d == temp.data) {
+				
+				System.out.println("找到了该节点");
+				return temp;
+				
+			}else {
+				
+				temp=temp.next;
+				
+			}
+			
+		}
+		
+		System.out.println("没有该节点");
+		
+		return null;
+		
+	}
+	
+	
+	//删除特定节点
+	public Link deleteLink(LinkList linklist,int d) {
+	
+		Link temp=linklist.searchLink(d);
+		
+		
+		//删除非尾节点
+		if(temp != null && temp.next != null) {
+			
+			temp.data=temp.next.data;
+			temp.next=temp.next.next;
+			
+		}
+				
+		return temp;
+	
+	}	
+		
+	
+}
