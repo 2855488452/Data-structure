@@ -1,0 +1,115 @@
+public class LinkNodeTest {
+
+
+    public StudentTest student;
+
+    public LinkNodeTest nextNode;
+
+
+    @Override
+    public String toString() {
+        return "LinkNodeTest{" +"student=" + student +", nextNode=" + nextNode +'}';
+    }
+}
+
+public class StudentTest {
+
+    public String name;
+    public int age;
+    private String sex;
+    private String objext;
+
+
+    public String GetSex(){
+        return this.sex;
+    }
+
+    public void SetSex(String sexwewe){
+        this.sex = sexwewe;
+    }
+
+    public String getObjext() {
+        return objext;
+    }
+
+    public void setObjext(String objext) {
+        this.objext = objext;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentTest{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex='" + sex + '\'' +
+                ", objext='" + objext + '\'' +
+                '}';
+    }
+}
+
+
+public class MainTest {
+
+    public static void  main(String[] sss){
+
+        LinkNodeTest linkNode1 = new LinkNodeTest();
+        LinkNodeTest linkNode2 = new LinkNodeTest();
+        LinkNodeTest linkNode3 = new LinkNodeTest();
+        LinkNodeTest linkNode4 = new LinkNodeTest();
+        
+        StudentTest stu1 = new StudentTest();
+        stu1.name = "小明";
+        stu1.age = 23;
+        stu1.SetSex("男");
+
+        StudentTest stu2 = new StudentTest();
+        stu2.name = "小明2";
+        stu2.age = 24;
+        stu2.SetSex("男");
+
+        StudentTest stu3 = new StudentTest();
+        stu3.name  = "小明3";
+        stu3.age = 25;
+        stu3.SetSex("男");
+
+        StudentTest stu4 = new StudentTest();
+        stu4.name = "小明4";
+        stu4.age = 26;
+        stu4.SetSex("男");
+
+        linkNode1.student = stu1;
+        linkNode2.student = stu2;
+        linkNode3.student = stu3;
+        linkNode4.student = stu4;
+
+        linkNode1.nextNode=linkNode2;
+        linkNode2.nextNode=linkNode3;
+        linkNode3.nextNode=linkNode4;
+
+
+
+
+        LinkNodeTest linkNodeLast = linkNode4;
+        
+//        LinkNodeTest linkNodeLast=new LinkNodeTest();
+//        linkNodeLast.student=linkNode4.student;   深度复制
+
+        for(int i = 0; i < 100; i++){
+
+            LinkNodeTest linkNodeNext = new LinkNodeTest();
+            linkNodeNext.student = new StudentTest();
+            linkNodeNext.student.age=i+1;
+            linkNodeNext.student.SetSex("男");
+            linkNodeNext.student.name ="dazhong"+i;
+            linkNodeNext.student.setObjext("ruanjian");
+
+            linkNodeLast.nextNode = linkNodeNext;
+            linkNodeLast = linkNodeLast.nextNode;
+
+        }
+
+        System.out.println(linkNode1);
+
+    }
+}
+
