@@ -87,13 +87,8 @@ public class MainTest {
         linkNode3.nextNode=linkNode4;
 
 
-
-
         LinkNodeTest linkNodeLast = linkNode4;
         
-//        LinkNodeTest linkNodeLast=new LinkNodeTest();
-//        linkNodeLast.student=linkNode4.student;   深度复制
-
         for(int i = 0; i < 100; i++){
 
             LinkNodeTest linkNodeNext = new LinkNodeTest();
